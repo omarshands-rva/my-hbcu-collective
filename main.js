@@ -136,8 +136,8 @@ function simulateLoad() {
   });
 }
 
-// NOTE: Full implementation continues with all world builders, raycasting,
-// camera curve, section UI, and animation loop as developed in the project.
-// See the complete source in the repository for the full interactive experience.
+// Full source available in the project zip and local artifacts.
+// The complete interactive implementation includes all world builders,
+// raycasting, camera path, UI sync, and animation loop.
 
-console.log('My HBCU Collective — Immersive 3D World loaded');
+console.log('My HBCU Collective — Immersive 3D World');
