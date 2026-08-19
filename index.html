@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>My HBCU Collective — The Living Network</title>
+  <meta name="description" content="An immersive 3D world connecting HBCU networks, media, directories, ventures, and culture. The free Google of the HBCU space." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-ring"></div>
+      <h1>My HBCU Collective</h1>
+      <p>Entering the network...</p>
+      <div class="loader-bar"><div class="loader-progress"></div></div>
+    </div>
+  </div>
+
+  <!-- 3D Canvas -->
+  <canvas id="webgl"></canvas>
+
+  <!-- Fixed UI Overlay -->
+  <div id="ui">
+    <!-- Top bar -->
+    <header class="top-bar">
+      <div class="logo">
+        <span class="logo-mark">H</span>
+        <span class="logo-text">My HBCU Collective</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#" data-section="1">Network</a>
+        <a href="#" data-section="2">On The Yard</a>
+        <a href="#" data-section="3">Directory</a>
+        <a href="#" data-section="4">Venture Lab</a>
+        <a href="#" data-section="6">Join</a>
+      </nav>
+      <button class="cta-btn" id="join-btn">Enter the Collective</button>
+    </header>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-hint" id="scroll-hint">
+      <span>Scroll to explore the world</span>
+      <div class="scroll-line"></div>
+    </div>
+
+    <!-- Section progress dots -->
+    <div class="section-dots" id="section-dots">
+      <button class="dot active" data-section="0" title="Portal"></button>
+      <button class="dot" data-section="1" title="Network"></button>
+      <button class="dot" data-section="2" title="On The Yard"></button>
+      <button class="dot" data-section="3" title="Directory"></button>
+      <button class="dot" data-section="4" title="Venture Lab"></button>
+      <button class="dot" data-section="5" title="Token"></button>
+      <button class="dot" data-section="6" title="Join"></button>
+    </div>
+
+    <!-- Hover tooltip for 3D objects -->
+    <div id="object-tooltip" class="object-tooltip"></div>
+
+    <!-- Section content panels -->
+    <div class="section-panel" data-section="0" id="panel-portal">
+      <div class="panel-content">
+        <p class="eyebrow">HBCU Collective TV · Network · Culture</p>
+        <h2>Welcome to the<br/><span class="gold">Living Network</span></h2>
+        <p class="lede">A continuous 3D universe connecting every HBCU association, campus, creator, founder, and alum.</p>
+        <div class="search-box">
+          <input type="text" id="hbcu-search" placeholder="Search the free Google of the HBCU space..." />
+          <button class="search-btn" id="search-btn">Explore</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-panel" data-section="1" id="panel-network">
+      <div class="panel-content">
+        <p class="eyebrow">HBCU by Association</p>
+        <h2>The <span class="gold">Network</span></h2>
+        <ul class="feature-list">
+          <li>HBCU Network</li>
+          <li>Radio & Podcast</li>
+          <li>Business Directory</li>
+          <li>Media Collective (HBCUCLLTV)</li>
+        </ul>
+        <p>Interconnected nodes of influence, storytelling, and opportunity across the diaspora. Hover the nodes.</p>
+      </div>
+    </div>
+
+    <div class="section-panel" data-section="2" id="panel-yard">
+      <div class="panel-content">
+        <p class="eyebrow">Real-time culture</p>
+        <h2>On The <span class="gold">Yard</span></h2>
+        <p>News, energy, and the pulse of campus life. The digital yard where stories break, traditions live, and the next generation gathers. This is where HBCU culture breathes in real time.</p>
+      </div>
+    </div>
+
+    <div class="section-panel" data-section="3" id="panel-directory">
+      <div class="panel-content">
+        <p class="eyebrow">Directory by Audience</p>
+        <h2>Find Your <span class="gold">People</span></h2>
+        <div class="dir-grid">
+          <div class="dir-card" data-dir="universities">Universities</div>
+          <div class="dir-card" data-dir="orgs">Organizations</div>
+          <div class="dir-card" data-dir="alumni">Alumni Associations</div>
+        </div>
+        <p>Search the entire HBCU ecosystem — the free Google of Black collegiate space.</p>
+      </div>
+    </div>
+
+    <div class="section-panel" data-section="4" id="panel-venture">
+      <div class="panel-content">
+        <p class="eyebrow">Build the future</p>
+        <h2>Venture <span class="gold">Lab</span></h2>
+        <p>Where founders, innovators, and capital meet HBCU talent. Incubate ideas. Launch companies. Own the next chapter of Black excellence in business and tech.</p>
+      </div>
+    </div>
+
+    <div class="section-panel" data-section="5" id="panel-token">
+      <div class="panel-content">
+        <p class="eyebrow">Community value</p>
+        <h2>Coin / <span class="gold">Token</span></h2>
+        <p>A shared economy layer for the collective — membership, access, rewards, and ownership of the network we build together. Value that stays in the community.</p>
+      </div>
+    </div>
+
+    <div class="section-panel" data-section="6" id="panel-join">
+      <div class="panel-content center">
+        <p class="eyebrow">The gate is open</p>
+        <h2>Join the <span class="gold">Collective</span></h2>
+        <p>Connect via social, email, and the living directory. Shape the network. Tell the stories. Build the ventures. This is your space.</p>
+        <div class="join-actions">
+          <input type="email" placeholder="Your email address" class="email-input" id="join-email" />
+          <button class="cta-btn large" id="claim-btn">Claim Your Place</button>
+        </div>
+        <div class="social-row">
+          <a href="#" target="_blank" rel="noopener">X / Twitter</a>
+          <a href="#" target="_blank" rel="noopener">Instagram</a>
+          <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="#" target="_blank" rel="noopener">YouTube</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Progress -->
+    <div class="progress-bar">
+      <div class="progress-fill" id="progress-fill"></div>
+    </div>
+  </div>
+
+  <!-- Tall scroll track -->
+  <div id="scroll-track" style="height: 850vh;"></div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
